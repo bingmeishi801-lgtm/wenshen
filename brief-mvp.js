@@ -140,35 +140,63 @@
       timestamp: new Date().toISOString()
     };
 
-    let hasProvider = false;
+    let hasGtag = false;
     try {
       if (typeof window.gtag === "function") {
-        hasProvider = true;
+        hasGtag = true;
         window.gtag("event", name, eventPayload);
       }
     } catch (_) {
-      hasProvider = hasProvider || false;
+      hasGtag = hasGtag || false;
     }
 
     try {
       if (typeof window.plausible === "function") {
-        hasProvider = true;
         window.plausible(name, { props: eventPayload });
       }
     } catch (_) {
-      hasProvider = hasProvider || false;
+      hasGtag = hasGtag || false;
     }
 
-    if (!hasProvider) {
+    if (!hasGtag) {
       try {
         console.log("[track]", name, eventPayload);
       } catch (_) {
-        hasProvider = hasProvider || false;
+        hasGtag = hasGtag || false;
       }
       const history = readEventLog();
       history.push(entry);
       writeEventLog(history);
     }
+  }
+
+  function preserveQueryParamsOnInternalLinks() {
+    const currentSearch = normalize(window.location.search);
+    if (!currentSearch) return;
+
+    const links = document.querySelectorAll("a[href]");
+    links.forEach(function (link) {
+      const rawHref = normalize(link.getAttribute("href"));
+      if (!rawHref) return;
+      if (rawHref.startsWith("#")) return;
+      if (rawHref.startsWith("mailto:")) return;
+      if (rawHref.startsWith("tel:")) return;
+      if (rawHref.startsWith("javascript:")) return;
+
+      let target;
+      try {
+        target = new URL(rawHref, window.location.href);
+      } catch (_) {
+        return;
+      }
+
+      if (target.origin !== window.location.origin) return;
+      if (normalize(target.search)) return;
+
+      target.search = currentSearch;
+      const nextHref = `${target.pathname}${target.search}${target.hash}`;
+      link.setAttribute("href", nextHref);
+    });
   }
 
   function showBriefEventLog() {
@@ -695,6 +723,7 @@
       trackEvent(viewEvent, { page: page });
     }
 
+    preserveQueryParamsOnInternalLinks();
     bindTrackedClicks();
 
     if (page === "start.html") setupStep1();

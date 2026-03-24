@@ -200,18 +200,18 @@
       selector.classList.toggle("border-primary-container", on);
       selector.classList.toggle("bg-primary-container", on);
       selector.classList.toggle("border-outline-variant", !on);
+      selector.classList.add("flex", "items-center", "justify-center");
 
       let check = selector.querySelector('.material-symbols-outlined[data-icon="check"]');
-      if (on && !check) {
+      if (!check) {
         check = document.createElement("span");
-        check.className = "material-symbols-outlined text-white text-[12px] font-bold";
+        check.className = "material-symbols-outlined text-white text-[12px] font-bold leading-none";
         check.setAttribute("data-icon", "check");
         check.textContent = "check";
         selector.appendChild(check);
       }
-      if (!on && check) {
-        check.remove();
-      }
+      check.classList.toggle("opacity-100", on);
+      check.classList.toggle("opacity-0", !on);
     }
   }
 

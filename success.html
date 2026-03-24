@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#465f88",
+              "primary-fixed-dim": "#aec7f6",
+              "primary-container": "#002147",
+              "inverse-primary": "#aec7f6",
+              "surface-dim": "#dadada",
+              "secondary-container": "#d4e4f7",
+              "on-tertiary-fixed-variant": "#6c391d",
+              "surface-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#b8c8da",
+              "primary-fixed": "#d6e3ff",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#1a1c1c",
+              "outline-variant": "#c4c6cf",
+              "on-primary-fixed": "#001b3d",
+              "tertiary": "#180500",
+              "secondary": "#51606f",
+              "surface-container": "#eeeeee",
+              "background": "#f9f9f9",
+              "tertiary-fixed-dim": "#ffb691",
+              "outline": "#74777f",
+              "on-secondary-fixed": "#0d1d2a",
+              "tertiary-container": "#3d1500",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#d4e4f7",
+              "inverse-surface": "#2f3131",
+              "on-tertiary-fixed": "#341100",
+              "tertiary-fixed": "#ffdbcb",
+              "surface-container-low": "#f3f3f3",
+              "on-error-container": "#93000a",
+              "surface-container-highest": "#e2e2e2",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#44474e",
+              "surface": "#f9f9f9",
+              "on-tertiary-container": "#b97958",
+              "on-background": "#1a1c1c",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#394857",
+              "surface-container-high": "#e8e8e8",
+              "surface-bright": "#f9f9f9",
+              "primary": "#000a1e",
+              "on-primary-fixed-variant": "#2d476f",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#576676",
+              "on-primary-container": "#708ab5",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f1f1f1"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "1rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif', serif;
+        }
+        .elev-card { box-shadow: 0 12px 32px rgba(0, 33, 71, 0.08); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_8px_24px_rgba(0,33,71,0.06)]">
+<nav class="flex items-center justify-between px-6 md:px-8 py-4 max-w-7xl mx-auto"><a class="text-xl font-headline font-bold text-primary tracking-tight" href="index.html">Before You Ink</a></nav>
+</header>
+<!-- Main Content: Success Screen -->
+<main class="flex-grow flex items-center justify-center px-6 md:px-8 pt-28 pb-20 max-w-7xl mx-auto w-full">
+<div class="max-w-2xl w-full">
+<div class="bg-surface-container-lowest rounded-lg p-10 md:p-16 text-center elev-card border border-outline-variant/30 relative overflow-hidden">
+<!-- Subtle Background Texture/Element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-fixed opacity-10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+<!-- Icon/Mark -->
+<div class="mb-10 inline-flex items-center justify-center w-20 h-20 rounded-full bg-surface-container-low text-primary-container">
+<span class="material-symbols-outlined text-4xl" data-icon="task_alt">task_alt</span>
+</div>
+<!-- Success Message -->
+<h1 class="text-4xl md:text-5xl font-headline font-bold text-primary-container tracking-tight leading-tight mb-6">
+                    Your consultation brief is ready
+                </h1>
+<p class="text-lg md:text-xl font-body text-on-surface-variant leading-relaxed mb-12 max-w-lg mx-auto">
+                    You’ve turned your idea into a clearer consultation starting point. Next, you can review a sample brief or return to the home page.
+                </p>
+<!-- Action Group -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" href="sample-brief.html">
+                        View Sample Brief
+                    </a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-surface-container-highest text-primary font-bold text-[11px] tracking-[0.16em] uppercase hover:bg-surface-container transition-all" href="index.html">
+                        Back to Home
+                    </a>
+</div>
+<!-- Small Note -->
+<div class="mt-16 pt-8 border-t border-surface-container-highest max-w-sm mx-auto">
+<p class="text-sm font-body text-slate-400 leading-relaxed italic">
+                        Before You Ink helps you prepare for your consultation. Your tattoo artist should still create or refine the final design.
+                    </p>
+</div>
+</div>
+<!-- Contextual Layout Hint: Next Steps -->
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto bg-slate-50 dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="font-sans text-sm tracking-widest uppercase text-slate-400 dark:text-slate-500">
+                © 2026 Before You Ink. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="font-sans text-sm tracking-widest uppercase text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors" href="privacy.html">Privacy Policy</a>
+<a class="font-sans text-sm tracking-widest uppercase text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors" href="terms.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

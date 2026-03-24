@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Before You Ink - Visual Elements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#6c391d",
+                        "secondary-fixed": "#d4e4f7",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-bright": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "secondary": "#51606f",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b8c8da",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-secondary-container": "#576676",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#aec7f6",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-surface-variant": "#44474e",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#b97958",
+                        "secondary-container": "#d4e4f7",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary-container": "#3d1500",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "primary-container": "#002147",
+                        "on-secondary-fixed": "#0d1d2a",
+                        "inverse-primary": "#aec7f6",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-container": "#708ab5",
+                        "on-secondary-fixed-variant": "#394857",
+                        "surface-container-highest": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "primary": "#000a1e",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-variant": "#e2e2e2",
+                        "surface-tint": "#465f88",
+                        "outline": "#74777f",
+                        "tertiary": "#180500",
+                        "surface-container-high": "#e8e8e8"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "1rem", "xl": "1.25rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .elev-card { box-shadow: 0 12px 32px rgba(0, 33, 71, 0.08); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopAppBar Section -->
+<header class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_8px_24px_rgba(0,33,71,0.06)]">
+<div class="flex items-center justify-between px-6 md:px-8 py-4 w-full max-w-7xl mx-auto">
+<a class="text-xl font-headline font-bold text-primary tracking-tight" href="index.html">
+            Before You Ink
+        </a>
+</div>
+</header>
+<main class="pt-28 pb-20 px-6 md:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Content Canvas -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col space-y-12">
+<!-- Step Indicator Pattern -->
+<div class="flex flex-col space-y-4">
+<div class="flex justify-between items-end">
+<span class="font-label text-xs font-bold text-primary tracking-widest uppercase">STEP 02 / 05</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[40%] rounded-full transition-all duration-500"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] font-bold tracking-wider uppercase text-on-surface-variant/40 overflow-x-auto whitespace-nowrap pb-2 no-scrollbar">
+<span class="mr-4">Meaning</span>
+<span class="mr-4 text-primary">Visual Elements</span>
+<span class="mr-4">Style</span>
+<span class="mr-4">Placement &amp; Size</span>
+<span>Final Notes</span>
+</div>
+</div>
+<!-- Header Section -->
+<section class="space-y-4 max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold text-primary-container leading-tight tracking-tight">
+                What visual elements do you want?
+            </h1>
+<p class="text-lg text-on-surface-variant font-body leading-relaxed opacity-80">
+                List any symbols, objects, themes, or imagery you want included. If you're not sure, that's okay.
+            </p>
+</section>
+<!-- Form Section -->
+<div class="space-y-10">
+<!-- Multi-select Chips -->
+<div class="space-y-6">
+<label class="font-label text-xs font-extrabold text-primary tracking-[0.15rem] uppercase block">Select any elements that feel relevant</label>
+<div class="flex flex-wrap gap-3">
+<!-- Chip Item -->
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Flowers</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Animals</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Religious symbols</button>
+<button class="px-5 py-2.5 rounded-full border border-primary-container bg-primary-container text-on-primary font-medium text-sm shadow-md">Names or initials</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Dates</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Celestial elements</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Nature</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Abstract symbols</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Quotes or words</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary-container hover:bg-surface-container-low transition-all text-sm font-medium text-on-surface-variant">Objects</button>
+</div>
+<p class="text-xs text-on-surface-variant font-body mt-4 opacity-70 italic">Not sure what to choose? Start with the symbols, objects, or words that feel most personal.</p>
+</div>
+<!-- Input Field 1 -->
+<div class="space-y-4 max-w-xl">
+<label class="font-label text-xs font-extrabold text-primary tracking-[0.15rem] uppercase block">Anything specific you want included?</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface placeholder:text-slate-400 focus:ring-1 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="For example: a lily, a crescent moon, my dog’s paw print, roman numerals" type="text"/>
+</div>
+</div>
+<!-- Input Field 2 -->
+<div class="space-y-4 max-w-xl">
+<label class="font-label text-xs font-extrabold text-primary tracking-[0.15rem] uppercase block">Anything you want to avoid?</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface placeholder:text-slate-400 focus:ring-1 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="For example: no skulls, no bright colors, nothing too detailed" type="text"/>
+</div>
+</div>
+</div>
+<!-- Navigation Actions -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-12 border-t border-outline-variant/30">
+<a class="w-full md:w-auto inline-flex items-center justify-center md:justify-start gap-2 px-8 py-4 rounded-xl bg-surface-container-highest text-primary font-bold text-[11px] tracking-[0.16em] uppercase hover:bg-surface-container transition-all" href="start.html">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Back</span>
+</a>
+<div class="w-full md:w-auto flex flex-col items-center md:items-end gap-2">
+<a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" href="step-3.html">
+<span>Continue</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Preview Panel -->
+<aside class="lg:col-span-5 xl:col-span-4 hidden lg:block">
+<div class="sticky top-28 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl elev-card border border-outline-variant/30 flex flex-col h-full min-h-[500px]">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-primary text-xl">edit_note</span>
+<h2 class="text-xl font-bold text-primary-container tracking-tight">Your Brief Preview</h2>
+</div>
+<div class="space-y-10 flex-grow">
+<!-- Preview Section: Meaning -->
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-surface-container-highest">
+<span class="font-label text-[10px] font-black text-slate-400 tracking-widest uppercase block mb-2">Meaning</span>
+<p class="text-sm font-headline italic text-on-surface-variant leading-relaxed">
+                            "Memorial concept"
+                        </p>
+</div>
+<!-- Preview Section: Visual Elements (Active) -->
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-primary">
+<span class="font-label text-[10px] font-black text-primary tracking-widest uppercase block mb-2">Visual Elements</span>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-container/30 text-secondary text-[11px] px-2 py-0.5 rounded">Flowers</span>
+<span class="bg-secondary-container/30 text-secondary text-[11px] px-2 py-0.5 rounded">Geometric patterns</span>
+</div>
+</div>
+<!-- Empty State Placeholders -->
+<div class="space-y-6 opacity-30 select-none">
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-surface-container-highest">
+<span class="font-label text-[10px] font-black text-slate-400 tracking-widest uppercase block mb-2">Style</span>
+<div class="h-2 w-3/4 bg-slate-200 rounded-full text-[11px] font-body italic text-on-surface-variant opacity-70">Pending selection...</div>
+</div>
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-surface-container-highest">
+<span class="font-label text-[10px] font-black text-slate-400 tracking-widest uppercase block mb-2">Placement</span>
+<div class="h-2 w-1/2 bg-slate-200 rounded-full text-[11px] font-body italic text-on-surface-variant opacity-70">Pending selection...</div>
+</div>
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-surface-container-highest">
+<span class="font-label text-[10px] font-black text-slate-400 tracking-widest uppercase block mb-2">Size</span>
+<div class="h-2 w-1/3 bg-slate-200 rounded-full text-[11px] font-body italic text-on-surface-variant opacity-70">Pending selection...</div>
+</div>
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-surface-container-highest">
+<span class="font-label text-[10px] font-black text-slate-400 tracking-widest uppercase block mb-2">Notes</span>
+<div class="h-2 w-2/3 bg-slate-200 rounded-full text-[11px] font-body italic text-on-surface-variant opacity-70">Pending completion...</div>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-6 border-t border-surface-container">
+<p class="text-[11px] text-on-surface-variant font-medium text-center italic opacity-60">
+                        Your brief preview updates as you go
+                    </p>
+</div>
+</div>
+<!-- Assistance Card -->
+<div class="bg-tertiary-fixed/20 p-6 rounded-xl flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant mt-1">lightbulb</span>
+<div>
+<h4 class="text-sm font-bold text-on-tertiary-fixed-variant mb-1">Unsure about elements?</h4>
+<p class="text-xs text-on-tertiary-fixed-variant leading-relaxed opacity-80">
+                        Start with the symbols, objects, or words that feel most personal.
+                    </p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer Space -->
+<footer class="py-12 text-center text-slate-400 text-xs font-label tracking-widest uppercase">© 2026 Before You Ink. All rights reserved.</footer>
+<script src="brief-mvp.js"></script>
+</body></html>

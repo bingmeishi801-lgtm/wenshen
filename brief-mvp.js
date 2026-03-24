@@ -2,6 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "beforeYouInk.briefData";
+  const EVENT_LOG_KEY = "brief_event_debug_log";
   const PLACEHOLDER = "Not provided yet";
   const DEFAULT_BRIEF_DATA = {
     meaningShort: "",
@@ -91,7 +92,122 @@
   function pageName() {
     const path = window.location.pathname || "";
     const file = path.split("/").pop();
-    return file || "start.html";
+    if (!file) return "index.html";
+    return file;
+  }
+
+  function readEventLog() {
+    try {
+      const raw = localStorage.getItem(EVENT_LOG_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function writeEventLog(events) {
+    try {
+      localStorage.setItem(EVENT_LOG_KEY, JSON.stringify(events.slice(-200)));
+    } catch (_) {
+      return;
+    }
+  }
+
+  function pageViewEventName(name) {
+    const map = {
+      "index.html": "landing_view",
+      "start.html": "step1_view",
+      "step-2.html": "step2_view",
+      "step-3.html": "step3_view",
+      "step-4.html": "step4_view",
+      "step-5.html": "step5_view",
+      "brief-result.html": "brief_result_view",
+      "sample-brief.html": "sample_brief_view"
+    };
+    return map[name] || "";
+  }
+
+  function trackEvent(eventName, payload = {}) {
+    const eventPayload = payload && typeof payload === "object" ? payload : {};
+    const name = normalize(eventName);
+    if (!name) return;
+
+    const entry = {
+      name: name,
+      payload: eventPayload,
+      page: pageName(),
+      timestamp: new Date().toISOString()
+    };
+
+    let hasProvider = false;
+    try {
+      if (typeof window.gtag === "function") {
+        hasProvider = true;
+        window.gtag("event", name, eventPayload);
+      }
+    } catch (_) {
+      hasProvider = hasProvider || false;
+    }
+
+    try {
+      if (typeof window.plausible === "function") {
+        hasProvider = true;
+        window.plausible(name, { props: eventPayload });
+      }
+    } catch (_) {
+      hasProvider = hasProvider || false;
+    }
+
+    if (!hasProvider) {
+      try {
+        console.log("[track]", name, eventPayload);
+      } catch (_) {
+        hasProvider = hasProvider || false;
+      }
+      const history = readEventLog();
+      history.push(entry);
+      writeEventLog(history);
+    }
+  }
+
+  function showBriefEventLog() {
+    const rows = readEventLog();
+    if (rows.length === 0) {
+      console.log("[track] brief_event_debug_log is empty");
+      return;
+    }
+    console.table(rows);
+  }
+
+  function bindTrackedClicks() {
+    const eventMap = {
+      "landing-create": "landing_cta_create_click",
+      "landing-sample": "landing_cta_sample_click",
+      "sample-create": "landing_cta_create_click",
+      "step1-continue": "step1_continue_click",
+      "step2-continue": "step2_continue_click",
+      "step3-continue": "step3_continue_click",
+      "step4-continue": "step4_continue_click",
+      "step5-submit": "step5_create_brief_click",
+      "result-start-new-brief": "start_new_brief_click",
+      "feedback-link": "feedback_click"
+    };
+
+    Object.keys(eventMap).forEach(function (trackKey) {
+      const nodes = document.querySelectorAll(`[data-track="${trackKey}"]`);
+      nodes.forEach(function (node) {
+        if (node.dataset.trackBound === "1") return;
+        node.dataset.trackBound = "1";
+        node.addEventListener("click", function () {
+          trackEvent(eventMap[trackKey], {
+            track: trackKey,
+            href: node.getAttribute("href") || "",
+            label: normalize(node.textContent)
+          });
+        });
+      });
+    });
   }
 
   function visualSummary(data) {
@@ -570,7 +686,17 @@
   }
 
   function init() {
+    window.trackEvent = trackEvent;
+    window.showBriefEventLog = showBriefEventLog;
+
     const page = pageName();
+    const viewEvent = pageViewEventName(page);
+    if (viewEvent) {
+      trackEvent(viewEvent, { page: page });
+    }
+
+    bindTrackedClicks();
+
     if (page === "start.html") setupStep1();
     if (page === "step-2.html") setupStep2();
     if (page === "step-3.html") setupStep3();

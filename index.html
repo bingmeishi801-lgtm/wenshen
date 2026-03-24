@@ -72,7 +72,7 @@
 <a class="text-sm font-medium text-on-surface/70 hover:text-primary transition-all" href="#faq">FAQ</a>
 </div>
 <div class="flex items-center">
-<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" href="start.html">Create My Brief</a>
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" data-track="landing-create" href="start.html">Create My Brief</a>
 </div>
 </div>
 </nav>
@@ -93,8 +93,8 @@
                 Stop bringing random screenshots to your first tattoo consultation.
             </p>
 <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-<a class="inline-flex items-center justify-center gap-2 px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95 text-center whitespace-nowrap" href="start.html">Create My Brief</a>
-<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-surface-container-highest text-primary font-bold text-[11px] tracking-[0.16em] uppercase hover:bg-surface-container transition-all" href="sample-brief.html">View Sample Brief</a>
+<a class="inline-flex items-center justify-center gap-2 px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95 text-center whitespace-nowrap" data-track="landing-create" href="start.html">Create My Brief</a>
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-surface-container-highest text-primary font-bold text-[11px] tracking-[0.16em] uppercase hover:bg-surface-container transition-all" data-track="landing-sample" href="sample-brief.html">View Sample Brief</a>
 </div>
 <div class="flex items-center gap-6 text-xs text-on-surface/50 font-medium">
 <span>Takes about 5 minutes</span>
@@ -267,7 +267,7 @@
 <li class="flex items-center gap-2"><span>-</span> Size guidance</li>
 <li class="flex items-center gap-2"><span>-</span> Artist notes</li>
 </ul>
-<a class="inline-flex items-center justify-center gap-2 w-full px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95 text-center" href="sample-brief.html">Open Sample Brief</a>
+<a class="inline-flex items-center justify-center gap-2 w-full px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95 text-center" data-track="landing-sample" href="sample-brief.html">Open Sample Brief</a>
 </div>
 </div>
 </section>
@@ -356,6 +356,9 @@
 </div>
 </div>
 </section>
+<section class="px-6 md:px-8 max-w-7xl mx-auto pb-8">
+<a class="text-xs text-on-surface/60 hover:text-primary transition-colors underline-offset-2 hover:underline" data-track="feedback-link" href="https://YOUR-FEEDBACK-FORM-URL" rel="noopener noreferrer" target="_blank">Confusing anywhere? Send feedback</a>
+</section>
 </main>
 <!-- Footer -->
 <footer class="bg-primary text-white pt-24 pb-12">
@@ -364,4 +367,5 @@
 <div class="pt-8 border-t border-white/10 text-white/40 text-xs font-bold tracking-[0.12em] uppercase">© 2026 Before You Ink。版权所有。</div>
 </div>
 </footer>
+<script src="brief-mvp.js"></script>
 </body></html>

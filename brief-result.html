@@ -131,13 +131,14 @@
 
 <div class="space-y-3">
 <a class="inline-flex items-center justify-center gap-2 w-full px-8 py-4 rounded-xl bg-surface-container-highest text-primary font-bold text-[11px] tracking-[0.16em] uppercase hover:bg-surface-container transition-all" href="index.html">Back to Home</a>
-<a class="inline-flex items-center justify-center gap-2 w-full px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" href="start.html">Start a New Brief</a>
+<a class="inline-flex items-center justify-center gap-2 w-full px-12 py-4 rounded-xl bg-primary-container text-on-primary font-bold text-[11px] tracking-[0.16em] uppercase shadow-[0_10px_20px_rgba(0,33,71,0.15)] hover:opacity-95 transition-all hover:scale-[1.02] active:scale-95" data-track="result-start-new-brief" href="start.html">Start a New Brief</a>
 </div>
 </div>
 </aside>
 </section>
 
 <section class="mt-16 pt-8 border-t border-outline-variant/30">
+<a class="text-xs text-on-surface/55 hover:text-primary transition-colors underline-offset-2 hover:underline" data-track="feedback-link" href="https://YOUR-FEEDBACK-FORM-URL" rel="noopener noreferrer" target="_blank">Would you actually send this to a tattoo artist? Tell us why or why not.</a>
 <p class="text-sm text-on-surface/65 leading-relaxed italic">Before You Ink helps you prepare for your consultation. Your tattoo artist should still create or refine the final design.</p>
 </section>
 </main>
@@ -268,4 +269,5 @@
         renderReadiness(data.readinessSource);
       })();
     </script>
+<script src="brief-mvp.js"></script>
 </body></html>

@@ -215,6 +215,47 @@
     }
   }
 
+  function setStyleCardActive(label, active) {
+    const on = !!active;
+    const card = label.querySelector("div.p-6.rounded-xl");
+    const radio = label.querySelector('input[type="radio"][name="style"]');
+    const indicator = card ? card.querySelector(".w-4.h-4.rounded-full.border") : null;
+
+    if (radio) {
+      radio.checked = on;
+    }
+
+    if (card) {
+      card.classList.toggle("border-primary-container", on);
+      card.classList.toggle("bg-surface-container-lowest", on);
+      card.classList.toggle("border-transparent", !on);
+      card.classList.toggle("bg-surface-container-low", !on);
+    }
+
+    if (indicator) {
+      indicator.classList.toggle("border-primary-container", on);
+      indicator.classList.toggle("bg-primary-container", on);
+      indicator.classList.toggle("border-outline", !on);
+
+      let dot = Array.from(indicator.children).find(function (child) {
+        return child.classList &&
+          child.classList.contains("w-1.5") &&
+          child.classList.contains("h-1.5") &&
+          child.classList.contains("rounded-full");
+      });
+
+      if (!dot) {
+        dot = document.createElement("div");
+        dot.className = "brief-style-dot w-1.5 h-1.5 rounded-full bg-white opacity-0";
+        indicator.appendChild(dot);
+      }
+
+      dot.classList.add("brief-style-dot", "bg-white", "w-1.5", "h-1.5", "rounded-full");
+      dot.classList.toggle("opacity-100", on);
+      dot.classList.toggle("opacity-0", !on);
+    }
+  }
+
   function labelSpan(aside, text) {
     const wanted = normalize(text).toLowerCase();
     return Array.from(aside.querySelectorAll("span")).find(function (span) {
@@ -365,22 +406,37 @@
     const continueBtn = document.querySelector('a[href="step-4.html"]');
 
     let data = loadBriefData();
+
+    function applyStyleSelection(selectedValue) {
+      labels.forEach(function (styleLabel) {
+        const styleTitle = styleLabel.querySelector("h3");
+        const styleValue = normalize(styleTitle && styleTitle.textContent);
+        setStyleCardActive(styleLabel, styleValue === selectedValue);
+      });
+    }
+
     labels.forEach(function (label) {
       const radio = label.querySelector('input[type="radio"][name="style"]');
       const title = label.querySelector("h3");
       const value = normalize(title && title.textContent);
       if (!radio || !value) return;
       radio.value = value;
-      radio.checked = data.styleSelected === value;
+
+      setStyleCardActive(label, data.styleSelected === value);
+
       radio.addEventListener("change", function () {
         data = updateBriefData(function (draft) { draft.styleSelected = value; });
+        applyStyleSelection(value);
         renderPreview(data);
       });
       label.addEventListener("click", function () {
         data = updateBriefData(function (draft) { draft.styleSelected = value; });
+        applyStyleSelection(value);
         renderPreview(data);
       });
     });
+
+    applyStyleSelection(data.styleSelected);
 
     if (textarea) {
       textarea.value = data.styleNotes;
